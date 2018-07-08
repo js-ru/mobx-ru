@@ -1,4 +1,4 @@
-<img src="docs/mobx.png" alt="logo" height="120" align="right" />
+<img src="mobx.png" alt="logo" height="120" align="right" />
 
 # MobX
 
@@ -14,7 +14,7 @@ _Simple, scalable state management_
 
 MobX is proudly sponsored by Mendix, Coinbase, Facebook Open Source and many [individual sponsors](#backers)
 
-<img src="docs/mendix-logo.png" align="center" width="100" title="Mendix" alt="Mendix" /> <img src="docs/coinbase.jpeg" align="center" width="100" title="Coinbase" alt="Coinbase" /> <img src="docs/fbos.jpeg" align="center" width="100" title="Facebook Open Source" alt="Facebook Open Source" />
+<img src="mendix-logo.png" align="center" width="100" title="Mendix" alt="Mendix" /> <img src="coinbase.jpeg" align="center" width="100" title="Coinbase" alt="Coinbase" /> <img src="fbos.jpeg" align="center" width="100" title="Facebook Open Source" alt="Facebook Open Source" />
 
 # Installation
 
@@ -52,7 +52,7 @@ _Anything that can be derived from the application state, should be derived. Aut
 
 which includes the UI, data serialization, server communication, etc.
 
-<img alt="MobX unidirectional flow" src="docs/flow.png" align="center" />
+<img alt="MobX unidirectional flow" src="flow.png" align="center" />
 
 React and MobX together are a powerful combination. React renders the application state by providing mechanisms to translate it into a tree of renderable components. MobX provides the mechanism to store and update the application state that React then uses.
 
