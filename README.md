@@ -1,4 +1,4 @@
-<img src="mobx.png" alt="logo" height="120" align="right" />
+<img src="mobx.jpg" alt="logo" height="120" align="right" />
 
 # MobX
 
@@ -14,11 +14,11 @@ _Simple, scalable state management_
 
 MobX is proudly sponsored by Mendix, Coinbase, Facebook Open Source and many [individual sponsors](#backers)
 
-<img src="mendix-logo.png" align="center" width="100" title="Mendix" alt="Mendix" /> <img src="coinbase.jpeg" align="center" width="100" title="Coinbase" alt="Coinbase" /> <img src="fbos.jpeg" align="center" width="100" title="Facebook Open Source" alt="Facebook Open Source" />
+<img src="mendix-logo.jpg" align="center" width="100" title="Mendix" alt="Mendix" /> <img src="coinbase.jpeg" align="center" width="100" title="Coinbase" alt="Coinbase" /> <img src="fbos.jpeg" align="center" width="100" title="Facebook Open Source" alt="Facebook Open Source" />
 
 # Installation
 
-* Installation:  
+* Installation:
   `npm install mobx --save`. React bindings: `npm install mobx-react --save`. To enable ESNext decorators (optional), please checkout decoration section below.
 * CDN:
   - https://unpkg.com/mobx/lib/mobx.umd.js
