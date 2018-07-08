@@ -2,7 +2,7 @@
 
 # MobX
 
-_Simple, scalable state management_
+_Простое и масштабируемое управление состоянием_
 
 [![Build Status](https://travis-ci.org/mobxjs/mobx.svg?branch=master)](https://travis-ci.org/mobxjs/mobx)
 [![Coverage Status](https://coveralls.io/repos/mobxjs/mobx/badge.svg?branch=master&service=github)](https://coveralls.io/github/mobxjs/mobx?branch=master)
@@ -12,23 +12,23 @@ _Simple, scalable state management_
 [![OpenCollective](https://opencollective.com/mobx/sponsors/badge.svg)](#sponsors)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-MobX is proudly sponsored by Mendix, Coinbase, Facebook Open Source and many [individual sponsors](#backers)
+MobX спонсируется Mendix, Coinbase, Facebook Open Source и многими [другими спонсорами](#backers)
 
 <img src="mendix-logo.jpg" align="center" width="100" title="Mendix" alt="Mendix" /> <img src="coinbase.jpeg" align="center" width="100" title="Coinbase" alt="Coinbase" /> <img src="fbos.jpeg" align="center" width="100" title="Facebook Open Source" alt="Facebook Open Source" />
 
-# Installation
+# Установка
 
-* Installation:
-  `npm install mobx --save`. React bindings: `npm install mobx-react --save`. To enable ESNext decorators (optional), please checkout decoration section below.
+* Установка:
+  `npm install mobx --save`. Привяхки для React: `npm install mobx-react --save`. Чтобы включить декораторы ESNext (необязательно), пожалуйста, посмотрите раздел про них ниже.
 * CDN:
   - https://unpkg.com/mobx/lib/mobx.umd.js
   - https://cdnjs.com/libraries/mobx
 
-## Translations
+## Переводы
 
 * [中文](http://cn.mobx.js.org)
 
-## Getting started
+## Начало работы
 
 * <i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx">Egghead.io course</a></i>
 * [Ten minute, interactive MobX + React tutorial](https://mobxjs.github.io/mobx/getting-started.html)
@@ -43,31 +43,33 @@ MobX is proudly sponsored by Mendix, Coinbase, Facebook Open Source and many [in
 * More tutorials, blogs, videos, and other helpful resources can be found on the [MobX awesome list](https://github.com/mobxjs/awesome-mobx#awesome-mobx)
 
 
-## Introduction
+## Введение
 
-MobX is a battle tested library that makes state management simple and scalable by transparently applying functional reactive programming (TFRP).
-The philosophy behind MobX is very simple:
+MobX — это библиотека, делающая управление состоянием приложения простым и масштабируемым, применяя функционально-реактивное программирование.
+Философия MobX очень проста:
 
-_Anything that can be derived from the application state, should be derived. Automatically._
+_“Все, что может быть получено из состояния приложения, должно быть получено. Автоматически”._
 
-which includes the UI, data serialization, server communication, etc.
+которое включает в себя пользовательский интерфейс, сериализацию данных, подключение к сервером и т.д.
 
 <img alt="MobX unidirectional flow" src="flow.png" align="center" />
 
-React and MobX together are a powerful combination. React renders the application state by providing mechanisms to translate it into a tree of renderable components. MobX provides the mechanism to store and update the application state that React then uses.
+React и Mobx вместе — мощная комбинация. React отрисовывает состояние приложения, предоставляя механизмы для перевода его в дерево отображаемых компонентов. MobX предоставляет механизм хранения и обновления состояния приложения, которое затем может использовать React.
+
+Как React, так и MobX предоставляют оптимальное решение общих проблем разработки приложений. React даёт нам возможность оптимально отрисовывать интерфейс с помощью виртуалльного DOM, уменьшающего количество дорогостоящих изменений оригинального DOM. MobX позволяет синхронизировать состояние приложения между React-компонентами, используя графическое состояние реактивной виртуальной зависимости, которое обновляется только когда это действительно нужно.
 
 Both React and MobX provide very optimal and unique solutions to common problems in application development. React provides mechanisms to optimally render UI by using a virtual DOM that reduces the number of costly DOM mutations. MobX provides mechanisms to optimally synchronize application state with your React components by using a reactive virtual dependency state graph that is only updated when strictly needed and is never stale.
 
-## Core concepts
+## Основные конпцепции
 
-MobX has only a few core concepts. The following snippets can be tried online using [codesandbox example](https://codesandbox.io/s/v3v0my2370).
+У MobX лишь несколько основных концепций. Следующие фрагменты кода можно попробовать онлайн, используя [codesandbox](https://codesandbox.io/s/v3v0my2370).
 
-### Observable state
+### Наблюдаемое состояние
 
 <i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/lessons/javascript-sync-the-ui-with-the-app-state-using-mobx-observable-and-observer-in-react">Egghead.io lesson 1: observable & observer</a></i>
 
-MobX adds observable capabilities to existing data structures like objects, arrays and class instances.
-This can simply be done by annotating your class properties with the [@observable](http://mobxjs.github.io/mobx/refguide/observable-decorator.html) decorator (ES.Next).
+MobX добавляет возможность наблюдать за существующими структурами данных, такими как объекты, массивы и экземпляры классов.
+Это довольно просто сделать, обернув необходимое свойство класса с помощью декоратора [@observable](http://mobxjs.github.io/mobx/refguide/observable-decorator.html) (ES.Next).
 
 ```javascript
 import { observable } from "mobx"
@@ -79,13 +81,13 @@ class Todo {
 }
 ```
 
-Using `observable` is like turning a property of an object into a spreadsheet cell.
-But unlike spreadsheets, these values can be not only primitive values, but also references, objects and arrays.
+Использование `@observable` похоже на превращение свойства объекта в ячейку электронной таблицы.
+Но в отличие от электронных таблиц эти свойства могут являться не только примитивными значениями, но а также ссылками, объектами и массивами.
 
-If your environment doesn't support decorator syntax, don't worry.
-You can read [here](http://mobxjs.github.io/mobx/best/decorators.html) about how to set them up.
-Or you can skip them altoghether, as MobX can be used fine without decorator _syntax_, by leveraging the _decorate_ utility.
-Many MobX users do prefer the decorator syntax though, as it is slightly more concise.
+Если ваша среда не поддерживает синтаксис декоратора, не беспокойтесь.
+Вы можете прочитать [здесь](http://mobxjs.github.io/mobx/best/decorators.html), как их настроить.
+Или вы можете пропустить их вообще, так как MobX можно использовать и без _синтаксиса_ декоратора, используя утилиту _decorate_.
+Многие пользователи MobX предпочитают синтаксис декоратора, поскольку он чуть более краткий.
 
 ```javascript
 import { decorate, observable } from "mobx"
@@ -101,12 +103,12 @@ decorate(Todo, {
 })
 ```
 
-### Computed values
+### Вычисляемые значения
 
 <i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/lessons/javascript-derive-computed-values-and-manage-side-effects-with-mobx-reactions">Egghead.io lesson 3: computed values</a></i>
 
-With MobX you can define values that will be derived automatically when relevant data is modified.
-By using the [`@computed`](http://mobxjs.github.io/mobx/refguide/computed-decorator.html) decorator or by using getter / setter functions when using `(extend)Observable` (Of course, you can use `decorate` here again as alternative to the `@` syntax).
+С помощью MobX вы можете определить значения, которые будут получены автоматически при изменении соответствующих данных.
+С помощью декоратора [`@computed`](http://mobxjs.github.io/mobx/refguide/computed-decorator.html) или используя функций геттера / setter с помощью `(extend) Observable` (Конечно, вы можете использовать` decorate` здесь снова как альтернативу синтаксису `@`).
 
 ```javascript
 class TodoList {
@@ -117,21 +119,22 @@ class TodoList {
 }
 ```
 
-MobX will ensure that `unfinishedTodoCount` is updated automatically when a todo is added or when one of the `finished` properties is modified.
-Computations like these resemble formulas in spreadsheet programs like MS Excel. They update automatically and only when required.
+MobX гарантирует, что значение `unfinishedTodoCount` автоматически обновится при добавлении нового элемента в массив todos или при изменении одного из свойств `finished`.
+Подобные вычисления так же аналогичны формулам в электронных таблицах. Значения в них обновляются автоматически и только при необходимости.
 
-### Reactions
+### Реакции
 
 <i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/lessons/react-write-custom-mobx-reactions-with-when-and-autorun">Egghead.io lesson 9: custom reactions</a></i>
 
-Reactions are similar to a computed value, but instead of producing a new value, a reaction produces a side effect for things like printing to the console, making network requests, incrementally updating the React component tree to patch the DOM, etc.
-In short, reactions bridge [reactive](https://en.wikipedia.org/wiki/Reactive_programming) and [imperative](https://en.wikipedia.org/wiki/Imperative_programming) programming.
+Реакции похожи на вычисляемое значение, но вместо создания нового значения реакция создаёт побочный эффект для таких вещей, как вывод на консоль, создание сетевых запросов, постепенное обновление дерева компонентов React для исправления DOM и т.д.
 
-#### React components
+Короче говоря, реакции преодолевают разрыв между [реактивным](https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5) и [императивным](https://ru.wikipedia.org/wiki/%D0%98%D0%BC%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5) программированием.
+
+#### React-компоненты
 
 <i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx">Egghead.io lesson 1: observable & observer</a></i>
 
-If you are using React, you can turn your (stateless function) components into reactive components by simply adding the [`observer`](http://mobxjs.github.io/mobx/refguide/observer-component.html) function / decorator from the `mobx-react` package onto them.
+Если вы используете React, вы можете превратить компоненты (функции без состояния) в реактивные компоненты, просто добавив функцию [`observer`](http://mobxjs.github.io/mobx/refguide/observer-component.html) / декоратор из пакета `mobx-react`.
 
 ```javascript
 import React, {Component} from 'react';
@@ -147,7 +150,7 @@ class TodoListView extends Component {
                     <TodoView todo={todo} key={todo.id} />
                 )}
             </ul>
-            Tasks left: {this.props.todoList.unfinishedTodoCount}
+            Осталось задач: {this.props.todoList.unfinishedTodoCount}
         </div>
     }
 }
@@ -166,16 +169,15 @@ const store = new TodoList();
 ReactDOM.render(<TodoListView todoList={store} />, document.getElementById('mount'));
 ```
 
-`observer` turns React (function) components into derivations of the data they render.
-When using MobX there are no smart or dumb components.
-All components render smartly but are defined in a dumb manner. MobX will simply make sure the components are always re-rendered whenever needed, but also no more than that. So the `onClick` handler in the above example will force the proper `TodoView` to render, and it will cause the `TodoListView` to render if the number of unfinished tasks has changed.
-However, if you would remove the `Tasks left` line (or put it into a separate component), the `TodoListView` will no longer re-render when ticking a box. You can verify this yourself by changing the [JSFiddle](https://jsfiddle.net/mweststrate/wv3yopo0/).
+`observer` превращает компоненты React (функцию) в производные данные.
+При использовании MobX нет умных или глупых компонентов.
+Все компоненты визуально отображаются, но определяются как глупые. MobX гарантирует, что компоненты всегда перерисовываются по мере необходимости, но не более того. Таким образом, обработчик `onClick` в приведённом выше примере заставит отрисовать необходимый `TodoView`, и это приведёт к отрисовкке `TodoListView`, если количество незавершённых задач изменилось.
+Однако, если вы удалили строку `Осталось задач` (или поместили ее в отдельный компонент), `TodoListView` больше не будет повторно отрисовываться при завершении задач. Вы можете проверить это самостоятельно, изменив [пример на JSFiddle](https://jsfiddle.net/mweststrate/wv3yopo0/).
 
-#### Custom reactions
-Custom reactions can simply be created using the [`autorun`](http://mobxjs.github.io/mobx/refguide/autorun.html),
-[`reaction`](http://mobxjs.github.io/mobx/refguide/reaction.html) or [`when`](http://mobxjs.github.io/mobx/refguide/when.html) functions to fit your specific situations.
+#### Пользовательские реакции
+Пользовательские реакции могут быть просто созданы с помощью функций [`autorun`](http://mobxjs.github.io/mobx/refguide/autorun.html), [`reaction`](http://mobxjs.github.io/mobx/refguide/reaction.html) или [`when`](http://mobxjs.github.io/mobx/refguide/when.html), в зависимости от ваших конкретных случаях.
 
-For example the following `autorun` prints a log message each time the amount of `unfinishedTodoCount` changes:
+Например, следующий `autorun` напечатает сообщение в консоль каждый раз при изменении `unfinishedTodoCount`:
 
 ```javascript
 autorun(() => {
@@ -183,137 +185,143 @@ autorun(() => {
 })
 ```
 
-### What will MobX react to?
+### На что реагирует MobX?
 
-Why does a new message get printed each time the `unfinishedTodoCount` is changed? The answer is this rule of thumb:
+Почему новое сообщение печатается каждый раз, когда изменяется `unfinishedTodoCount`? Ответ — это общее правило:
 
-_MobX reacts to any existing observable property that is read during the execution of a tracked function._
+_MobX реагирует на любое существующее наблюдаемое свойство, которое читается во время выполнения отслеживаемой функции._
 
-For an in-depth explanation about how MobX determines to which observables needs to be reacted, check [understanding what MobX reacts to](https://github.com/mobxjs/mobx/blob/gh-pages/docs/best/react.md).
+Для подробного объяснения того, как MobX определяет, с какими наблюдаемыми нужно реагировать, прочитайте про [то, на что реагирует MobX] (https://github.com/mobxjs/mobx/blob/gh-pages/docs/best/react.md).
 
-### Actions
+### Действия
 
 <i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/lessons/react-use-mobx-actions-to-change-and-guard-state">Egghead.io lesson 5: actions</a></i>
 
-Unlike many flux frameworks, MobX is unopinionated about how user events should be handled.
+В отличие от многих flux-фреймворков, MobX не такой самоуверенный о том, как обрабатывать пользовательские события.
 
-* This can be done in a Flux like manner.
-* Or by processing events using RxJS.
-* Or by simply handling events in the most straightforward way possible, as demonstrated in the above `onClick` handler.
+* Это можно сделать так же, как во Flux.
+* Или путём обработки событий с использованием RxJS.
+* Или просто обрабатывая события наиболее простым способом, как показано в продемонстрированном обработчике `onClick`.
 
-In the end it all boils down to: Somehow the state should be updated.
+В конце концов всё сводится к тому, что состояние должно быть как-то обновлено.
 
-After updating the state `MobX` will take care of the rest in an efficient, glitch-free manner. So simple statements, like below, are enough to automatically update the user interface.
+После обновления состояние `MobX` позаботится обо всём остальном эффективным без сбоев способом. Поэтому таких простых выражений, которые показаны ниже, достаточно для автоматического обновления пользовательского обновления.
 
-There is no technical need for firing events, calling a dispatcher or what more. A React component in the end is nothing more than a fancy representation of your state. A derivation that will be managed by MobX.
+Нет никакой технической необходимости для генерации событий, вызове диспетчера или чего-то еще. React-компонент в конце концов является не чем иным, как необычным представлением вашего состояния. Вывод, который будет управляться MobX.
 
 ```javascript
 store.todos.push(
-    new Todo("Get Coffee"),
-    new Todo("Write simpler code")
+    new Todo("Приготовить кофе"),
+    new Todo("Писать код проще")
 );
 store.todos[0].finished = true;
 ```
 
-Nonetheless, MobX has an optional built-in concept of [`actions`](https://mobxjs.github.io/mobx/refguide/action.html).
-Read this section as well if you want to know more about writing asynchronous actions. It's easy!
-Use them to your advantage; they will help you to structure your code better and make wise decisions about when and where state should be modified.
+Тем не менее, MobX имеет дополнительную встроенную концепцию [`actions`](https://mobxjs.github.io/mobx/refguide/action.html).
+Прочтите этот раздел, если хотите узнать больше о написании асинхронных действий. Это просто!
+Используйте их в своих интересах; они помогут вам лучше структурировать ваш код и принять продуманные решения о том, когда и где должно быть изменено состояние.
 
-## MobX: Simple and scalable
+## MobX: Простой и масштабируемый
 
-MobX is one of the least obtrusive libraries you can use for state management. That makes the `MobX` approach not just simple, but very scalable as well:
+MobX — одна из наименее ограничивающих библиотек, которую вы можете использовать для управления состоянием. Это делает подход `MobX` не просто простым, но очень масштабируемым:
 
-### Using classes and real references
+### Использование классов и реальных ссылок
 
-With MobX you don't need to normalize your data. This makes the library very suitable for very complex domain models (At Mendix for example ~500 different domain classes in a single application).
+С MobX вам не требуется нормализовать ваши данные. Это делает библиотеку очень подходящей для очень сложных моделей предметной области (например, в Mendix, например, 500 различных классов моделей предметной области в одном приложении).
 
-### Referential integrity is guaranteed
+### Гарантированная ссылочная целостность
 
-Since data doesn't need to be normalized, and MobX automatically tracks the relations between state and derivations, you get referential integrity for free. Rendering something that is accessed through three levels of indirection?
+Поскольку данные не требуют нормализации, а MobX автоматически отслеживает связи между состоянием и производные данными (derivations), вы без дополнительных усилий получаете ссылочную целостность.
 
-No problem, MobX will track them and re-render whenever one of the references changes. As a result staleness bugs are a thing of the past. As a programmer you might forget that changing some data might influence a seemingly unrelated component in a corner case. MobX won't forget.
+<!-- todo
+Rendering something that is accessed through three levels of indirection?
+Отрисовка того, что доступно через три уровня косвенности?
+-->
 
-### Simpler actions are easier to maintain
+Нет проблем, MobX будет отслеживать и повторно отрисовать их при изменении одной из ссылок. В результате ошибки устаревших данных ушли в прошлое. Как программист, вы можете забыть, что изменение некоторых данных может повлиять на кажущийся несвязанный компонент в тупиковой ситуации. MobX не забудет.
 
-As demonstrated above, modifying state when using MobX is very straightforward. You simply write down your intentions. MobX will take care of the rest.
+### Более простые действия проще поддерживать
 
-### Fine grained observability is efficient
+Как показано выше, изменение состояния при использовании MobX очень просто. Вы просто записываете свои намерения. MobX позаботится обо всём остальном.
 
-MobX builds a graph of all the derivations in your application to find the least number of re-computations that is needed to prevent staleness. "Derive everything" might sound expensive, MobX builds a virtual derivation graph to minimize the number of recomputations needed to keep derivations in sync with the state.
+### Эффективная точная наблюдаемость состояния
 
-In fact, when testing MobX at Mendix we found out that using this library to track the relations in our code is often a lot more efficient then pushing changes through our application by using handwritten events or "smart" selector based container components.
+MobX строит график всех производных данных в вашем приложении, чтобы найти наименьшее количество повторных вычислений, необходимых для предотвращения проблемы устаревших данных. «Вывести все» может показаться дорогим, MobX создаёт виртуальный граф производных данных, чтобы свести к минимуму количество повторных вычислений, необходимых для синхронизации производных данных с состоянием.
 
-The simple reason is that MobX will establish far more fine grained 'listeners' on your data then you would do as a programmer.
+Фактически, при тестировании MobX в Mendix мы выяснили, что использование этой библиотеки для отслеживания связей в нашем коде часто намного более эффективно, чем вызов изменений через наше приложение, используя рукописные события или «умные» селекторы на основе компонентов-контейнеров.
 
-Secondly MobX sees the causality between derivations so it can order them in such a way that no derivation has to run twice or introduces a glitch.
+Простым объяснением этого является то, что MobX создаст гораздо более точные «слушатели» ваших данных, которые вы могли бы сделать как программист.
 
-How that works? See this [in-depth explanation of MobX](https://medium.com/@mweststrate/becoming-fully-reactive-an-in-depth-explanation-of-mobservable-55995262a254).
+Во-вторых, MobX видит причинность между производными данными, чтобы он мог упорядочить их таким образом, чтобы ни один вывод не выполнялся дважды или не вводил сбой.
 
-### Easy interoperability
+Как это работает? См. Это [подробное объяснение MobX] (https://medium.com/@mweststrate/becoming-fully-reactive-an-in-depth-explanation-of-mobservable-55995262a254).
 
-MobX works with plain javascript structures. Due to its unobtrusiveness it works with most javascript libraries out of the box, without needing MobX specific library flavors.
+### Лёгкая совместимость
 
-So you can simply keep using your existing router, data fetching, and utility libraries like `react-router`, `director`, `superagent`, `lodash` etc.
+MobX работает с простыми структурами JavaScript. Из-за своей ненавязчивости он работает с большинством JavaScript-библиотек из коробки, без необходимости использования специфических библиотек MobX.
 
-For the same reason you can use it out of the box both server and client side, in isomorphic applications and with react-native.
+Таким образом, вы можете просто использовать существующий маршрутизатор, утилиту для получения данных и другие библиотеки, такие как `react-router`, `director`, `superagent`, `lodash` и т.д.
 
-The result of this is that you often need to learn less new concepts when using MobX in comparison to other state management solutions.
+По этой же причине вы можете использовать его из коробки как на стороне сервера, так и на стороне клиента, в изоморфных приложениях и с React Native.
+
+Результатом этого является то, что вам зачастую потребуется изучать меньше новых концепций при использовании MobX по сравнению с другими решениями по управлению состоянием.
 
 ---
 
 
-## Credits
+## Сведения об авторах
 
-MobX is inspired by reactive programming principles as found in spreadsheets. It is inspired by MVVM frameworks like in MeteorJS tracker, knockout and Vue.js. But MobX brings Transparent Functional Reactive Programming to the next level and provides a stand alone implementation. It implements TFRP in a glitch-free, synchronous, predictable and efficient manner.
+MobX вдохновлён принципами реактивного программирования, которые нашли применения в электронных таблицах. Он вдохновлён фреймворками MVVM, такими как MeteorJS, Knockout и Vue.js. Но MobX привносит прозрачное функциональное реактивное программирование (Transparent Functional Reactive Programming, TFRP) на новый уровень и обеспечивает самостоятельную реализацию. Он реализует TFRP без сбоев, синхронно, предсказуемо и эффективно.
 
-A ton of credits for [Mendix](https://github.com/mendix), for providing the flexibility and support to maintain MobX and the chance to proof the philosophy of MobX in a real, complex, performance critical applications.
+Тонна благодарностей [Mendix](https://github.com/mendix), обеспечивающей гибкость и поддержку развития MobX и возможность доказать философию MobX в реальных, сложных, критически важных для производительности приложениях.
 
-And finally kudos for all the people that believed in, tried, validated and even [sponsored](https://github.com/mobxjs/mobx/blob/master/sponsors.md) MobX.
+И, наконец, спасибо всем людям, которые верили, пробовали, проверяли и даже [спонсировали](https://github.com/mobxjs/mobx/blob/master/sponsors.md) MobX.
 
-## Further resources and documentation
+## Дополнительные ресурсы и документация
 
-* [MobX homepage](http://mobxjs.github.io/mobx/faq/blogs.html)
-* [API overview](http://mobxjs.github.io/mobx/refguide/api.html)
-* [Tutorials, Blogs & Videos](http://mobxjs.github.io/mobx/faq/blogs.html)
-* [Boilerplates](http://mobxjs.github.io/mobx/faq/boilerplates.html)
-* [Related projects](http://mobxjs.github.io/mobx/faq/related.html)
+* [Главная страница MobX](http://mobxjs.github.io/mobx/faq/blogs.html)
+* [Краткий обзор API](http://mobxjs.github.io/mobx/refguide/api.html)
+* [Обучающие материалы, блоги и видео](http://mobxjs.github.io/mobx/faq/blogs.html)
+* [Шаблонные заготовки](http://mobxjs.github.io/mobx/faq/boilerplates.html)
+* [Связанные проекты](http://mobxjs.github.io/mobx/faq/related.html)
 
 
-## What others are saying...
+## Что говорят другие...
 
-> Guise, #mobx isn't pubsub, or your grandpa's observer pattern. Nay, it is a carefully orchestrated observable dimensional portal fueled by the power cosmic. It doesn't do change detection, it's actually a level 20 psionic with soul knife, slashing your viewmodel into submission.
+> Ребята, #mobx не pubsub, или шаблон наблюдателя вашего дедушки. Нет, это тщательно организованный наблюдаемый размерный портал, питаемый космической силой. Он не выполняет обнаружение изменений, это на самом деле 20 уровень псионики с ножом души, сводя ваш viewmodel к подчинению.
 
-> After using #mobx for lone projects for a few weeks, it feels awesome to introduce it to the team. Time: 1/2, Fun: 2X
+> После использования #mobx для единственных проектов в течение нескольких недель, это потрясающе представить его команде. Время: 1/2, Веселье: 2X
 
-> Working with #mobx is basically a continuous loop of me going “this is way too simple, it definitely won’t work” only to be proven wrong
+> Работа с #mobx — это в основном непрерывный цикл из «это слишком просто, это определенно не сработает», пока не было доказано, что это неправда.
 
-> Try react-mobx with es6 and you will love it so much that you will hug someone.
+> Попробуйте react-mobx  с es6, и вы будете так его любить, что вы кого-нибудь обнимете.
 
-> I have built big apps with MobX already and comparing to the one before that which was using Redux, it is simpler to read and much easier to reason about.
+> Я уже создал большие приложения с MobX и сравнивал их с теми, которые использовали Redux, его проще читать и гораздо понимать.
 
-> The #mobx is the way I always want things to be! It's really surprising simple and fast! Totally awesome! Don't miss it!
+> #mobx — это то, о чём я всегда мечтал! Это действительно удивительно просто и быстро! Просто восхитительно! Не пропустите!
 
-## Contributing
+## Участе в проекте
 
-* Feel free to send small pull requests. Please discuss new features or big changes in a GitHub issue first.
-* Use `npm test` to run the basic test suite, `npm run coverage` for the test suite with coverage and `npm run perf` for the performance tests.
+* Не стесняйтесь отправлять небольшие пулреквесты. Пожалуйста, сначала обсудите новые возможности или большие изменения в ишью на GitHub.
+* Используйте `npm test` для запуска базового набора тестов, `npm run coverage` для набора тестов с информацией о покрытии кода и `npm run perf` для запуска тестов производительности.
 
-## Flow support
-MobX ships with [flow typings](https://github.com/mobxjs/mobx/blob/master/flow-typed/mobx.js). Flow will automatically include them when you import mobx modules. Although you **do not** need to import the types explicitly, you can still do it like this: `import type { ... } from 'mobx'`.
+## Поддержка Flow
 
-To use the [flow typings](https://github.com/mobxjs/mobx/blob/master/flow-typed/mobx.js) shipped with MobX:
+MobX идёт с [типами для Flow](https://github.com/mobxjs/mobx/blob/master/flow-typed/mobx.js). Flow будет автоматически включать их при импорте модулей MobX. Хотя вам **не нужно** явно импортировать типы, вы всё равно можете сделать это следующим образом: `import type {...} from 'mobx'`.
 
-* In `.flowconfig`, you **cannot** ignore `node_modules`.
-* In `.flowconfig`, you **cannot** import it explicitly in the `[libs]` section.
-* You **do not** need to install library definition using [flow-typed](https://github.com/flowtype/flow-typed).
+Чтобы использовать [типы Flow](https://github.com/mobxjs/mobx/blob/master/flow-typed/mobx.js), поставляемый с MobX:
 
-## Donating
+* В `.flowconfig` вы **не можете** игнорировать `node_modules`.
+* В `.flowconfig` вы **не можете** импортировать его явно в разделе `[libs]`.
+* Вам **не нужно** устанавливать библиотеку с помощью [flow-typed](https://github.com/flowtype/flow-typed).
 
-Was MobX key in making your project a success?
-Join our [open collective](https://opencollective.com/mobx#) or use the [donate button](https://mobxjs.github.io/mobx/donate.html)!
+## Помощь проекту
 
-### Backers
-Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/mobx#backer)]
+Был ли MobX ключом к успеху вашего проекта?
+Присоединяйтесь к нашему [открытому сообществу](https://opencollective.com/mobx#) или [сделайте пожертвование](https://mobxjs.github.io/mobx/donate.html)!
+
+### Сторонники
+Поддержите нас ежемесячным пожертвованием и помогите продолжить нашу деятельность. [[Стать сторонником](https://opencollective.com/mobx#backer)]
 
 <a href="https://opencollective.com/mobx/backer/0/website" target="_blank"><img src="https://opencollective.com/mobx/backer/0/avatar.svg"></a>
 <a href="https://opencollective.com/mobx/backer/1/website" target="_blank"><img src="https://opencollective.com/mobx/backer/1/avatar.svg"></a>
@@ -376,13 +384,13 @@ Support us with a monthly donation and help us continue our activities. [[Become
 <a href="https://opencollective.com/mobx/backer/58/website" target="_blank"><img src="https://opencollective.com/mobx/backer/58/avatar.svg"></a>
 <a href="https://opencollective.com/mobx/backer/59/website" target="_blank"><img src="https://opencollective.com/mobx/backer/59/avatar.svg"></a>
 
-One time donations through paypal are welcome as well and are recorded in the [sponsors](sponsors.md) list.
+Одноразовые пожертвования через PayPal также приветствуются и записываются в список [спонсоров](sponsors.md).
 
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://mobxjs.github.io/mobx/donate.html)
+[![Сделать пожертвование](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://mobxjs.github.io/mobx/donate.html)
 
-### Sponsors
+### Спонсоры
 
-Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/mobx#sponsor)]
+Станьте спонсором и получите возможность разметстить свой логотип в нашем файле README на GitHub со ссылкой на ваш сайт. [[Стать спонсором](https://opencollective.com/mobx#sponsor)]
 
 <a href="https://opencollective.com/mobx/sponsor/0/website" target="_blank"><img src="https://opencollective.com/mobx/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/mobx/sponsor/1/website" target="_blank"><img src="https://opencollective.com/mobx/sponsor/1/avatar.svg"></a>
