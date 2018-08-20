@@ -18,11 +18,16 @@ MobX спонсируется Mendix, Coinbase, Facebook Open Source и мног
 
 # Установка
 
-* Установка:
-  `npm install mobx --save`. Привяхки для React: `npm install mobx-react --save`. Чтобы включить декораторы ESNext (необязательно), пожалуйста, посмотрите раздел про них ниже.
+* Установка: `npm install mobx --save`. Привязки для React: `npm install mobx-react --save`. Чтобы включить декораторы (необязательно), посмотрите раздел ниже.
 * CDN:
-  - https://unpkg.com/mobx/lib/mobx.umd.js
-  - https://cdnjs.com/libraries/mobx
+- https://unpkg.com/mobx/lib/mobx.umd.js
+- https://cdnjs.com/libraries/mobx
+
+# Поддержка браузерами
+
+* MobX >= 5 работает в любом браузере с [поддержкой прокси ES6](https://kangax.github.io/compat-table/es6/#test-Proxy). Это приведет к ошибке при запуске в более старых окружениях, таких как IE11, Node.js <6 или React Native Android на старом JavaScriptCore ([как обновить](https://github.com/react-community/jsc-android-buildscripts#how-to-use-it-with-my-react-native-app)).
+* MobX 4 работает в любом браузере ES5 и будет активно поддерживаться. API MobX 4 и 5 одинаковы и семантически могут достичь того же, но MobX 4 имеет некоторые [ограничения](#mobx-4-vs-mobx-5).
+  _Tip: главная точка входа пакета MobX 5 поставляется с кодом ES5 для обратной совместимости со всеми инструментами сборки. Но так как MobX 5 работает только в современных браузерах, рассмотрите возможность использования более быстрой и меньшей по размеру ES6-сборки: `lib / mobx.es6.js`. Например, установив псевдоним webpack: `resolve: { alias: { mobx: __dirname + "/node_modules/mobx/lib/mobx.es6.js" }}`_
 
 ## Переводы
 
@@ -32,6 +37,7 @@ MobX спонсируется Mendix, Coinbase, Facebook Open Source и мног
 
 * <i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx">Egghead.io course</a></i>
 * [Ten minute, interactive MobX + React tutorial](https://mobxjs.github.io/mobx/getting-started.html)
+* <img src="images/book.jpg" height="80px"/> [The MobX book](https://books.google.nl/books?id=ALFmDwAAQBAJ&pg=PP1&lpg=PP1&dq=michel+weststrate+mobx+quick+start+guide:+supercharge+the+client+state+in+your+react+apps+with+mobx&source=bl&ots=D460fxti0F&sig=ivDGTxsPNwlOjLHrpKF1nweZFl8&hl=nl&sa=X&ved=2ahUKEwiwl8XO--ncAhWPmbQKHWOYBqIQ6AEwAnoECAkQAQ#v=onepage&q=michel%20weststrate%20mobx%20quick%20start%20guide%3A%20supercharge%20the%20client%20state%20in%20your%20react%20apps%20with%20mobx&f=false) by Pavan Podila and Michel Weststrate (which despite it's name is in-depth!)
 * [Official MobX 4 documentation and API overview](https://mobxjs.github.io/mobx/refguide/api.html) ([MobX 3](https://github.com/mobxjs/mobx/blob/54557dc319b04e92e31cb87427bef194ec1c549c/docs/refguide/api.md), [MobX 2](https://github.com/mobxjs/mobx/blob/7c9e7c86e0c6ead141bb0539d33143d0e1f576dd/docs/refguide/api.md))
 * Videos:
   * [ReactNext 2016: Real World MobX](https://www.youtube.com/watch?v=Aws40KOx90U) - 40m [slides](https://docs.google.com/presentation/d/1DrI6Hc2xIPTLBkfNH8YczOcPXQTOaCIcDESdyVfG_bE/edit?usp=sharing)
@@ -279,6 +285,7 @@ MobX вдохновлён принципами реактивного прогр
 
 ## Дополнительные ресурсы и документация
 
+* <img src="images/book.jpg" height="80px"/> [The MobX book](https://books.google.nl/books?id=ALFmDwAAQBAJ&pg=PP1&lpg=PP1&dq=michel+weststrate+mobx+quick+start+guide:+supercharge+the+client+state+in+your+react+apps+with+mobx&source=bl&ots=D460fxti0F&sig=ivDGTxsPNwlOjLHrpKF1nweZFl8&hl=nl&sa=X&ved=2ahUKEwiwl8XO--ncAhWPmbQKHWOYBqIQ6AEwAnoECAkQAQ#v=onepage&q=michel%20weststrate%20mobx%20quick%20start%20guide%3A%20supercharge%20the%20client%20state%20in%20your%20react%20apps%20with%20mobx&f=false) by Pavan Podila and Michel Weststrate (which despite it's name is in-depth!)
 * [Главная страница MobX](http://mobxjs.github.io/mobx/faq/blogs.html)
 * [Краткий обзор API](http://mobxjs.github.io/mobx/refguide/api.html)
 * [Обучающие материалы, блоги и видео](http://mobxjs.github.io/mobx/faq/blogs.html)
@@ -303,7 +310,16 @@ MobX вдохновлён принципами реактивного прогр
 ## Участе в проекте
 
 * Не стесняйтесь отправлять небольшие пулреквесты. Пожалуйста, сначала обсудите новые возможности или большие изменения в ишью на GitHub.
-* Используйте `npm test` для запуска базового набора тестов, `npm run coverage` для набора тестов с информацией о покрытии кода и `npm run perf` для запуска тестов производительности.
+* Используйте `npm test` для запуска базового набора тестов, `npm run coverage` для набора тестов с информацией о покрытии кода и `npm run test:performance` для запуска тестов производительности.
+* Обратите внимание, что если вы хотите прислать новую возможность / исправление для MobX 4, необходимо открыть второй PR для ветки mobx4-master.
+
+ # MobX 4 в сравнении с MobX 5
+
+ Разница между MobX 4 и MobX 5 заключается в том, что последний использует Proxies для отслеживания свойств. Как следствие, MobX 5 работает только в браузерах, поддерживающих Proxy, в отличие от MobX 4, который работает в любом окружении ES5.
+ Наиболее примечательные ограничения MobX 4:
+  * Наблюдаемые массивы не являются реальными массивами, поэтому они не будут проходить проверку `Array.isArray()`. В практическом плане последствие состоит в том, что вам часто нужно сначала `.slice()` массива (чтобы получить реальную массивную копию), прежде чем перейти к сторонним библиотекам.
+  * Добавление свойств к существующим наблюдаемым объектам после создания автоматически не перехватывается. Вместо этого используйте наблюдаемые карты или используйте сборку в [служебных функциях](https://mobx.js.org/refguide/object-api.html) для чтения / записи / итерации по объектам, которые вы хотите динамически добавлять в свойства.
+ Подробнее смотрите на [странице c предостережениями](https://mobx.js.org/best/pitfalls.html).
 
 ## Поддержка Flow
 
