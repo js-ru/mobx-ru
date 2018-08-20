@@ -35,7 +35,7 @@ MobX спонсируется Mendix, Coinbase, Facebook Open Source и мног
 
 ## Начало работы
 
-* <i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx">Egghead.io course</a></i>
+* <i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx">egghead.io course</a></i>
 * [Ten minute, interactive MobX + React tutorial](https://mobxjs.github.io/mobx/getting-started.html)
 * <img src="images/book.jpg" height="80px"/> [The MobX book](https://books.google.nl/books?id=ALFmDwAAQBAJ&pg=PP1&lpg=PP1&dq=michel+weststrate+mobx+quick+start+guide:+supercharge+the+client+state+in+your+react+apps+with+mobx&source=bl&ots=D460fxti0F&sig=ivDGTxsPNwlOjLHrpKF1nweZFl8&hl=nl&sa=X&ved=2ahUKEwiwl8XO--ncAhWPmbQKHWOYBqIQ6AEwAnoECAkQAQ#v=onepage&q=michel%20weststrate%20mobx%20quick%20start%20guide%3A%20supercharge%20the%20client%20state%20in%20your%20react%20apps%20with%20mobx&f=false) by Pavan Podila and Michel Weststrate (which despite it's name is in-depth!)
 * [Official MobX 4 documentation and API overview](https://mobxjs.github.io/mobx/refguide/api.html) ([MobX 3](https://github.com/mobxjs/mobx/blob/54557dc319b04e92e31cb87427bef194ec1c549c/docs/refguide/api.md), [MobX 2](https://github.com/mobxjs/mobx/blob/7c9e7c86e0c6ead141bb0539d33143d0e1f576dd/docs/refguide/api.md))
@@ -72,7 +72,7 @@ Both React and MobX provide very optimal and unique solutions to common problems
 
 ### Наблюдаемое состояние
 
-<i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/lessons/javascript-sync-the-ui-with-the-app-state-using-mobx-observable-and-observer-in-react">Egghead.io lesson 1: observable & observer</a></i>
+<i><details>     <summary style="color: white; background:green;padding:5px;margin:5px;border-radius:2px">egghead.io lesson 1: observable & observer</summary>     <br>     <div style="padding:5px;">         <iframe style="border: none;" width=760 height=427  src="https://egghead.io/lessons/javascript-sync-the-ui-with-the-app-state-using-mobx-observable-and-observer-in-react/embed" />     </div>     <a style="font-style:italic;padding:5px;margin:5px;" href="https://egghead.io/lessons/javascript-sync-the-ui-with-the-app-state-using-mobx-observable-and-observer-in-react">Hosted on egghead.io</a> </details></i>
 
 MobX добавляет возможность наблюдать за существующими структурами данных, такими как объекты, массивы и экземпляры классов.
 Это довольно просто сделать, обернув необходимое свойство класса с помощью декоратора [@observable](http://mobxjs.github.io/mobx/refguide/observable-decorator.html) (ES.Next).
@@ -111,7 +111,7 @@ decorate(Todo, {
 
 ### Вычисляемые значения
 
-<i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/lessons/javascript-derive-computed-values-and-manage-side-effects-with-mobx-reactions">Egghead.io lesson 3: computed values</a></i>
+<i><details>     <summary style="color: white; background:green;padding:5px;margin:5px;border-radius:2px">egghead.io lesson 3: computed values</summary>     <br>     <div style="padding:5px;">         <iframe style="border: none;" width=760 height=427  src="https://egghead.io/lessons/javascript-derive-computed-values-and-manage-side-effects-with-mobx-reactions/embed" />     </div>     <a style="font-style:italic;padding:5px;margin:5px;"  href="https://egghead.io/lessons/javascript-derive-computed-values-and-manage-side-effects-with-mobx-reactions">Hosted on egghead.io</a> </details></i>
 
 С помощью MobX вы можете определить значения, которые будут получены автоматически при изменении соответствующих данных.
 С помощью декоратора [`@computed`](http://mobxjs.github.io/mobx/refguide/computed-decorator.html) или используя функций геттера / setter с помощью `(extend) Observable` (Конечно, вы можете использовать` decorate` здесь снова как альтернативу синтаксису `@`).
@@ -130,7 +130,7 @@ MobX гарантирует, что значение `unfinishedTodoCount` ав�
 
 ### Реакции
 
-<i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/lessons/react-write-custom-mobx-reactions-with-when-and-autorun">Egghead.io lesson 9: custom reactions</a></i>
+<i><details>     <summary style="color: white; background:green;padding:5px;margin:5px;border-radius:2px">egghead.io lesson 9: custom reactions</summary>     <br>     <div style="padding:5px;">         <iframe style="border: none;" width=760 height=427  src="https://egghead.io/lessons/react-write-custom-mobx-reactions-with-when-and-autorun/embed" />     </div>     <a style="font-style:italic;padding:5px;margin:5px;"  href="https://egghead.io/lessons/react-write-custom-mobx-reactions-with-when-and-autorun">Hosted on egghead.io</a> </details></i>
 
 Реакции похожи на вычисляемое значение, но вместо создания нового значения реакция создаёт побочный эффект для таких вещей, как вывод на консоль, создание сетевых запросов, постепенное обновление дерева компонентов React для исправления DOM и т.д.
 
@@ -138,7 +138,7 @@ MobX гарантирует, что значение `unfinishedTodoCount` ав�
 
 #### React-компоненты
 
-<i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx">Egghead.io lesson 1: observable & observer</a></i>
+<i><details>     <summary style="color: white; background:green;padding:5px;margin:5px;border-radius:2px">egghead.io lesson 1: observable & observer</summary>     <br>     <div style="padding:5px;">         <iframe style="border: none;" width=760 height=427  src="https://egghead.io/lessons/javascript-sync-the-ui-with-the-app-state-using-mobx-observable-and-observer-in-react/embed" />     </div>     <a style="font-style:italic;padding:5px;margin:5px;"  href="https://egghead.io/lessons/javascript-sync-the-ui-with-the-app-state-using-mobx-observable-and-observer-in-react">Hosted on egghead.io</a> </details></i>
 
 Если вы используете React, вы можете превратить компоненты (функции без состояния) в реактивные компоненты, просто добавив функцию [`observer`](http://mobxjs.github.io/mobx/refguide/observer-component.html) / декоратор из пакета `mobx-react`.
 
@@ -201,7 +201,7 @@ _MobX реагирует на любое существующее наблюда
 
 ### Действия
 
-<i><a style="color: white; background:green;padding:5px;margin:5px;border-radius:2px" href="https://egghead.io/lessons/react-use-mobx-actions-to-change-and-guard-state">Egghead.io lesson 5: actions</a></i>
+<i><details>     <summary style="color: white; background:green;padding:5px;margin:5px;border-radius:2px">egghead.io lesson 5: actions</summary>     <br>     <div style="padding:5px;">         <iframe style="border: none;" width=760 height=427  src="https://egghead.io/lessons/react-use-mobx-actions-to-change-and-guard-state/embed" />     </div>     <a style="font-style:italic;padding:5px;margin:5px;"  href="https://egghead.io/lessons/react-use-mobx-actions-to-change-and-guard-state">Hosted on egghead.io</a> </details></i>
 
 В отличие от многих flux-фреймворков, MobX не такой самоуверенный о том, как обрабатывать пользовательские события.
 
